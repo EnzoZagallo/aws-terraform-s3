@@ -1,0 +1,26 @@
+# Local Terraform provider binaries (downloaded during 'terraform init')
+**/.terraform/*
+
+# Terraform state files (contain resource metadata and sensitive values; never commit to Git)
+*.tfstate
+*.tfstate.*
+
+# Real variable files (may hold account-specific names or secrets; only commit .tfvars.example)
+*.tfvars
+*.tfvars.json
+
+# Saved execution plans and crash logs
+*.tfplan
+tfplan
+crash.log
+crash.*.log
+
+# Local planning notes (keep locally, exclude from public GitHub repo)
+GEMINI.md
+Repo Structure.txt
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
