@@ -1,5 +1,6 @@
-# Local Terraform provider binaries (downloaded during 'terraform init')
+# Local Terraform provider binaries and lock files (downloaded during 'terraform init')
 **/.terraform/*
+.terraform.lock.hcl
 
 # Terraform state files (contain resource metadata and sensitive values; never commit to Git)
 *.tfstate
