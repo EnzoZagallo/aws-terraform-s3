@@ -1,0 +1,13 @@
+# -----------------------------------------------------------------------------
+# Example Variable Values (Copy to 'terraform.tfvars' for local use)
+#
+# Why this file ends in .example:
+# Real .tfvars files are ignored in .gitignore because developers often put
+# environment-specific names or sensitive settings in them. Committing a
+# .tfvars.example template shows teammates which variables they can set.
+# -----------------------------------------------------------------------------
+
+aws_region     = "us-east-1"
+bucket_name    = "student-secure-data-lake-demo-2026"
+environment    = "dev"
+use_localstack = false

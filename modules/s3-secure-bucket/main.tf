@@ -4,7 +4,7 @@
 # Why these are separate resources:
 # Starting in AWS Provider v4+, HashiCorp deprecated inline settings inside
 # 'aws_s3_bucket'. Splitting versioning, public access, encryption, and
-# lifecycle into separate resources avoids state conflicts and makes each
+# lifecycle into separate resources to avoid state conflicts and make each
 # setting easier to manage independently.
 # -----------------------------------------------------------------------------
 
