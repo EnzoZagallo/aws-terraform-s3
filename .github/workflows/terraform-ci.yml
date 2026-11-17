@@ -1,0 +1,42 @@
+# -----------------------------------------------------------------------------
+# GitHub Actions CI Workflow
+#
+# Automatically runs on every push and pull request to 'main'.
+# It verifies that all Terraform files are properly formatted ('terraform fmt')
+# and that both the reusable module and the example pass 'terraform validate'.
+# -----------------------------------------------------------------------------
+
+name: "Terraform CI"
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validate:
+    name: "Format & Validate HCL"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~1.9.0"
+
+      - name: Check Terraform formatting (terraform fmt)
+        run: terraform fmt -check -recursive
+
+      - name: Validate S3 Secure Bucket Module
+        run: |
+          terraform -chdir=modules/s3-secure-bucket init -backend=false
+          terraform -chdir=modules/s3-secure-bucket validate
+
+      - name: Validate Secure Data Lake Example
+        run: |
+          terraform -chdir=examples/secure-data-lake init -backend=false
+          terraform -chdir=examples/secure-data-lake validate
